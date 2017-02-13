@@ -10,14 +10,15 @@ const getGeoLocation = require('../apiCalls/getGeoLocation');
 
 // home page
 router.get('/', function(req, res, next) {
+
   // rendering weatherInfo object containing the weatherData
-  res.render('index', {title:'Not signed in', weatherInfo:'hello'});
+  res.render('index', {title:'Not signed in'});
 });
 
 // home page - button route - converting address
 router.get('/weather', getGeoLocation.convertAddress, getWeather.getWeather, function(req, res, next) {
   // rendering weatherInfo object containing the weatherData
-  res.render('index', {title:'GeoCode', weatherInfo:res.locals.weatherInfo});
+  res.render('displayWeather', {title:'GeoCode', weatherInfo:res.locals.weatherInfo});
 });
 
 /* Home page. Contains custom middleware to do weather api call and get location of user */

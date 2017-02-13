@@ -4,13 +4,14 @@
   <% include partials/head.ejs %>
 
   <body>
-    <!-- Header partial -->
-    <% include partials/header.ejs %>
+  <!-- Header partial -->
+  <% include partials/header.ejs %>
     <main>
       <h1><%= title %></h1>
       <p>Welcome to <%= title %></p>
       <!-- User enters location data -->
-      <form action="/weather">
+
+      <%# <form action="/weather">
         <!-- Grabbing address or zip code -->
         <label for="address">Enter an address or zipcode </label>
         <input id="address" type="text" name="address" required />
@@ -24,8 +25,13 @@
         <div>
           <input id="locationBased" type="submit" value="Get Location" />
         </div>
-      </form>
+      </form>%>
+      <p>Temp: <%= weatherInfo.currently.temperature %></p>
+      <p>Lat:<%= weatherInfo.latitude %> </p>
+      <p>Lng:<%= weatherInfo.longitude %> </p>
+      <p>TimeZone: <%= weatherInfo.timezone %> </p>
     </main>
+
 
     <footer>
       <div><a href="https://darksky.net/poweredby/">Powered by Dark Sky</a></div>
