@@ -5,7 +5,7 @@ const models = require('../db/models/index');
 */
 function getFavorites(req, res, next) {
   models.sequelize.query(
-    'SELECT "Products"."productName", "Orders"."id", "Products"."category", "Products"."price", "Products"."unitSize", "Products"."alcohol", "Orders"."quantity", "Users"."username" FROM "Users" JOIN "Orders" ON "Users"."id" = "Orders"."userId"JOIN "Products" ON "Products"."id" = "Orders"."productId" WHERE "Users"."id" = :id',
+    'SELECT "Favorites"."latitude", "Favorites"."longitude", "Favorites"."searchQuery" FROM "Users" JOIN "Favorites" ON "Users"."id" = "Favorites"."userId" WHERE "Users"."id" = :id',
    {   //req.user.id
     replacements: { id: req.user.id }, /// replaces :id in the query
     type: models.sequelize.QueryTypes.SELECT // don't need metadata in the response
@@ -28,7 +28,7 @@ function addToFavorites(req, res, next) {
     longitude: req.body.longitude,
     searchQuery: req.body.address
   });
-  
+
 }
 /* Exporting functions */
 module.exports = {
