@@ -9,6 +9,7 @@ const getGeoLocation = require('../apiCalls/getGeoLocation');
 
 /* Home page. Contains custom middleware to do weather api call and get location of user */
 router.get('/id', getGeoLocation.getGeoLocation, getWeather.getWeather, function(req, res, next) {
+  console.log(req.body.address);
   // rendering weatherInfo object containing the weatherData
   res.render('index', { title: 'Weather App', weatherInfo: res.locals.weatherInfo });
 });
@@ -16,7 +17,14 @@ router.get('/id', getGeoLocation.getGeoLocation, getWeather.getWeather, function
 // home page
 router.get('/', function(req, res, next) {
   // rendering weatherInfo object containing the weatherData
-  res.render('index');
+  res.render('index', {title:'Not signed in', weatherInfo:'hello'});
+});
+
+
+// converting address
+router.get('/testGeo', getGeoLocation.convertAddress, function(req, res, next) {
+  // rendering weatherInfo object containing the weatherData
+  res.render('index', {title:'Not signed in', weatherInfo:'hello'});
 });
 
 module.exports = router;

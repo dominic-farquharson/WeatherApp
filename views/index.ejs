@@ -7,9 +7,13 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
-    <form action="/id">
-
+    <form action="/testGeo">
+      <!-- Grabbing address or zip code -->
+      <legend for="address">Enter an address or zipcode </legend>
+      <input id="address" type="text" name="address" required />
+      <input type="submit" />
     </form>
+
     <p>Lat:<%= weatherInfo.latitude %> </p>
     <p>Lng:<%= weatherInfo.longitude %> </p>
     <p>TimeZone: <%= weatherInfo.timezone %> </p>

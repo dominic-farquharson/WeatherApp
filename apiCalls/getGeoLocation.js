@@ -24,6 +24,25 @@ let getGeoLocation = (req, res, next) => {
 
 }
 
+let convertAddress = (req, res, next) => {
+  // grabbing address from query object
+  const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${req.query.address}&key=${process.env.GEOCODE_KEY}`;
+  // request to get user lat and lng based on their inputted address or zipcode
+  axios.get(url)
+    .then( (response) => {
+      console.log(response.data.results[0].geometry.location.lat);
+      //res.locals.lat = response.data.geometry.location.lat;
+      //console.log('latitude',res.locals.lat);
+        return next();
+    })
+    .catch( (response) => {
+      // error message
+      console.log('error converting address');
+      return next();
+    })
+}
+
 module.exports = {
-  getGeoLocation
+  getGeoLocation,
+  convertAddress
 }
