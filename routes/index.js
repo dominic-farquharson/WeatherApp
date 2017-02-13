@@ -7,7 +7,8 @@ const getWeather = require('../apiCalls/getWeather');
 
 /* GET home page. */
 router.get('/', getWeather.getWeather, function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  console.log('response',res.locals.weatherInfo);
+  res.render('index', { title: 'Weather App', weatherInfo: res.locals.weatherInfo });
 });
 
 module.exports = router;
