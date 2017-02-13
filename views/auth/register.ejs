@@ -1,1 +1,38 @@
-REgister page
+<!DOCTYPE html>
+  <!-- head partial file -->
+  <% include ../partials/head.ejs %>
+
+  <body>
+    <!-- Header partial -->
+    <% include ../partials/header.ejs %>
+    <main>
+      <form action="/register" method="POST">
+        <!-- user name -->
+        <label for="username">Username</label>
+        <input id="username" name="username" placeholder="username" required />
+        
+        <!-- First Name -->
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" name="firstName" placeholder="first name..." required />
+
+        <!-- Last name -->
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" name="lastName" placeholder="last name..." required/>
+
+        <!-- Password -->
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required/>
+
+        <!-- email -->
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email" required />
+
+        <!-- submit button -->
+        <div>
+          <input type="submit" value="Register" />
+        </div>
+      </form>
+    </main>
+
+
+  </body>

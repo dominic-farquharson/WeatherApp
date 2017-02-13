@@ -23,7 +23,7 @@ router.get('/weather', getGeoLocation.convertAddress, getWeather.getWeather, fun
 
 /* Home page. Contains custom middleware to do weather api call and get location of user */
 router.get('/location', getGeoLocation.getGeoLocation, getWeather.getWeather, function(req, res, next) {
-  console.log(req.body.address);
+  //console.log(req.body.address);
   // rendering weatherInfo object containing the weatherData
   res.render('index', { title: 'GeoLocation', weatherInfo: res.locals.weatherInfo });
 });

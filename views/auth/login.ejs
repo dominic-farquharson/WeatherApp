@@ -1,1 +1,26 @@
-Please log in
+<!DOCTYPE html>
+  <!-- head partial file -->
+  <% include ../partials/head.ejs %>
+
+  <body>
+    <!-- Header partial -->
+    <% include ../partials/header.ejs %>
+    <main>
+      <form action="/login" method="POST">
+        <!-- user name -->
+        <label for="username">Username</label>
+        <input id="username" name="username" placeholder="username" required />
+
+        <!-- Password -->
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required/>
+
+        <!-- submit button -->
+        <div>
+          <input type="submit" value="Login" />
+        </div>
+      </form>
+    </main>
+
+
+  </body>

@@ -32,7 +32,7 @@ function createUser(req, res) {
 
 // redirects users who aren't logged in
 function loginRequired(req, res, next) {
-  if (!req.user) res.redirect('/auth/login');
+  if (!req.user) res.redirect('/login');
 
   return next();
 }

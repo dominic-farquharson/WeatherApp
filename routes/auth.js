@@ -10,12 +10,18 @@ const passport = require('../auth/local');
 
 // register route
 router.get('/register', authHelpers.loginRedirect, (req, res)=> {
-  res.redirect('auth/register');
+  // rendering register page
+  res.render('auth/register', {title: 'register'})
+  // res.render('./auth/register')
+  //res.render('/auth/register')
 });
 
 // login route
 router.get('/login', authHelpers.loginRedirect, (req, res)=> {
-  res.redirect('auth/login');
+  //res.redirect('auth/login');
+
+  // rendering login page
+  res.render('auth/login', {title:'log in'})
 });
 
 // route to  creating a new user
@@ -34,7 +40,7 @@ router.post('/register', (req, res, next)  => {
 // Authenticating user
 router.post('/login', passport.authenticate('local', {
     successRedirect: '/user',
-    failureRedirect: '/auth/login',
+    failureRedirect: '/login',
     failureFlash: true
   })
 );

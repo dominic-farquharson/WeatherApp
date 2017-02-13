@@ -30,6 +30,9 @@
       <p>Lat:<%= weatherInfo.latitude %> </p>
       <p>Lng:<%= weatherInfo.longitude %> </p>
       <p>TimeZone: <%= weatherInfo.timezone %> </p>
+      <form action="/favorite" method="POST">
+        <input type="submit" value="Add to favorites" />
+      </form>
     </main>
 
 

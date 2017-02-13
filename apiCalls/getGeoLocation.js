@@ -30,10 +30,10 @@ let convertAddress = (req, res, next) => {
   // request to get user lat and lng based on their inputted address or zipcode
   axios.get(url)
     .then( (response) => {
-      console.log(response.data.results[0].geometry.location.lat);
+      //console.log(response.data.results[0].geometry.location.lat);
       res.locals.lat = response.data.results[0].geometry.location.lat;
       res.locals.lng = response.data.results[0].geometry.location.lng;
-      console.log(res.locals.lat, res.locals.lng);
+      //console.log(res.locals.lat, res.locals.lng);
         return next();
     })
     .catch( (response) => {

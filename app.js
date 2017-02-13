@@ -5,14 +5,28 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+/* Routes */
 var index = require('./routes/index');
-var users = require('./routes/users');
+var user = require('./routes/user');
 // register and login route
 const auth = require('./routes/auth')
+// favorites routes
+const favorites = require('./routes/favorites')
 
-var app = express();
+// method override
+const methodOverride = require('method-override');
 // Environment Variable
 require('dotenv').config();
+// session
+const session = require('express-session');
+// passport
+const passport = require('passport');
+
+// invoking express
+var app = express();
+
+// override with POST having ?_method=DELETE
+app.use(methodOverride('_method'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -44,10 +58,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // index route
 app.use('/', index);
-// users route
-app.use('/users', users);
+// user route
+app.use('/user', user);
 // register and login route
 app.use('/', auth);
+// favorites route
+app.use('/', favorites);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
