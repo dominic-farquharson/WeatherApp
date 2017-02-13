@@ -20,14 +20,15 @@ function getFavorites(req, res, next) {
 Creating an order
 Pulling User Id from request object
 */
-function addToFavorites(req, res) {
-  console.log('adding to favorites');
-  return next();
-  // return models.Order.create({
-  //   quantity: req.body.quantity,
-  //   productId: req.body.productId,
-  //   userId: req.user.id
-  // });
+function addToFavorites(req, res, next) {
+  console.log('add to favorites',req);
+  return models.Favorite.create({
+    userId: req.user.id,
+    latitude: req.body.latitude,
+    longitude: req.body.longitude,
+    searchQuery: req.body.address
+  });
+  
 }
 /* Exporting functions */
 module.exports = {

@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
 // home page - button route - converting address
 router.get('/weather', getGeoLocation.convertAddress, getWeather.getWeather, function(req, res, next) {
   // rendering weatherInfo object containing the weatherData
-  res.render('displayWeather', {title:'GeoCode', weatherInfo:res.locals.weatherInfo});
+  res.render('displayWeather', {title:'GeoCode', weatherInfo:res.locals.weatherInfo, address:res.locals.address});
 });
 
 /* Home page. Contains custom middleware to do weather api call and get location of user */

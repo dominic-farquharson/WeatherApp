@@ -26,11 +26,20 @@
           <input id="locationBased" type="submit" value="Get Location" />
         </div>
       </form>%>
+
       <p>Temp: <%= weatherInfo.currently.temperature %></p>
       <p>Lat:<%= weatherInfo.latitude %> </p>
       <p>Lng:<%= weatherInfo.longitude %> </p>
       <p>TimeZone: <%= weatherInfo.timezone %> </p>
+      <!-- Favorites button -->
       <form action="/favorite" method="POST">
+        <!-- grabbing latitude -->
+        <input type="hidden" value="<%= weatherInfo.latitude %>" name="latitude" />
+        <!-- grabbing longitude -->
+        <input type="hidden" value="<%= weatherInfo.longitude %>" name="longitude" />
+        <!-- Grabbing query:address or zipCode -->
+        <input type="hidden" value="<%= address %>" name="address" /> 
+
         <input type="submit" value="Add to favorites" />
       </form>
     </main>
