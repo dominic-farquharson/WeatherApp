@@ -7,11 +7,21 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
-    <form action="/testGeo">
+    <!-- User enters location data -->
+    <form action="/weather">
       <!-- Grabbing address or zip code -->
-      <legend for="address">Enter an address or zipcode </legend>
+      <label for="address">Enter an address or zipcode </label>
       <input id="address" type="text" name="address" required />
-      <input type="submit" />
+      <input type="submit" value="Search" />
+    </form>
+
+    <!-- User's asks for location data to be filled in -->
+    <form action="/weather">
+      <!-- Grabbing address or zip code -->
+      <label>Search by Location</label>
+      <div>
+        <input id="locationBased" type="submit" value="Get Location" />
+      </div>
     </form>
 
     <p>Lat:<%= weatherInfo.latitude %> </p>

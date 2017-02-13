@@ -31,8 +31,9 @@ let convertAddress = (req, res, next) => {
   axios.get(url)
     .then( (response) => {
       console.log(response.data.results[0].geometry.location.lat);
-      //res.locals.lat = response.data.geometry.location.lat;
-      //console.log('latitude',res.locals.lat);
+      res.locals.lat = response.data.results[0].geometry.location.lat;
+      res.locals.lng = response.data.results[0].geometry.location.lng;
+      console.log(res.locals.lat, res.locals.lng);
         return next();
     })
     .catch( (response) => {
