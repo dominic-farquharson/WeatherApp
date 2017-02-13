@@ -9,7 +9,9 @@ let getGeoLocation = (req, res, next) => {
   // post request to get location
   axios.post(url)
     .then( (response) => {
-    console.log('geo data',response.data);
+    console.log('geo data',response);
+      // location
+      res.locals.address = 'GPS';
       // setting lat to latitude
       res.locals.lat = response.data.location.lat;
       // setting lng to longitude
@@ -30,6 +32,7 @@ let convertAddress = (req, res, next) => {
   // request to get user lat and lng based on their inputted address or zipcode
   axios.get(url)
     .then( (response) => {
+      // grabbing user input from query
       res.locals.address = req.query.address;
       //console.log(response.data.results[0].geometry.location.lat);
       res.locals.lat = response.data.results[0].geometry.location.lat;

@@ -1,2 +1,33 @@
 
+#address {
+  width:75%;
+  display: block;
+}
+div {
+  margin-bottom:10px;
+}
+
+/*main {
+  padding: 50px;
+}*/
+#displayFavorites {
+  position:absolute;
+  top:20%;
+  height:50%;
+  width:100%;
+  padding:50px;
+  margin:0 auto;
+  overflow: scroll;
+  border:1px black solid;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
 /*# sourceMappingURL=style.css.map */

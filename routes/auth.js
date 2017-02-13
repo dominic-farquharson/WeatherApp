@@ -10,18 +10,26 @@ const passport = require('../auth/local');
 
 // register route
 router.get('/register', authHelpers.loginRedirect, (req, res)=> {
+  let username = null;
+  if (req.user) {
+    username=req.user.username;
+  }
   // rendering register page
-  res.render('auth/register', {title: 'register'})
+  res.render('auth/register', {title: 'register', username:username})
   // res.render('./auth/register')
   //res.render('/auth/register')
 });
 
 // login route
 router.get('/login', authHelpers.loginRedirect, (req, res)=> {
+  let username = null;
+  if (req.user) {
+    username=req.user.username;
+  }
   //res.redirect('auth/login');
 
   // rendering login page
-  res.render('auth/login', {title:'log in'})
+  res.render('auth/login', {title:'log in', username:username})
 });
 
 // route to  creating a new user

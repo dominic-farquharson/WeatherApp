@@ -17,6 +17,7 @@ const weatherFavorites = require('../weatherFavorites/favoriteWeather');
 
 /* Creating Order - Add to Order Button  */
 router.post('/favorite', authHelpers.loginRequired, (req, res, next)  => {
+  
   // creating a new favorite based on the user id
   weatherFavorites.addToFavorites(req, res)
   .then((favorite) => {

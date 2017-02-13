@@ -8,13 +8,12 @@
     <% include partials/header.ejs %>
     <main>
       <h1><%= title %></h1>
-      <p>Welcome to <%= title %></p>
       <!-- User enters location data -->
       <form action="/weather">
         <!-- Grabbing address or zip code -->
         <label for="address">Enter an address or zipcode </label>
         <input id="address" type="text" name="address" required />
-        <input type="submit" value="Search" />
+        <input type="submit" class="waves-effect waves-light btn blue" value="Search" />
       </form>
 
       <!-- User's asks for location data to be filled in -->
@@ -22,13 +21,10 @@
         <!-- Grabbing address or zip code -->
         <label>Search by Location</label>
         <div>
-          <input id="locationBased" type="submit" value="Get Location" />
+          <input id="locationBased" type="submit" class="waves-effect waves-light btn blue" value="Get Location" />
         </div>
       </form>
     </main>
-
-    <footer>
-      <div><a href="https://darksky.net/poweredby/">Powered by Dark Sky</a></div>
-    </footer>
+    <% include partials/footer.ejs %>
   </body>
 </html>
