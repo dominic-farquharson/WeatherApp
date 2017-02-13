@@ -6,7 +6,7 @@ const axios = require('axios');
 // function to make api call to get Weather
 let getWeather = (req, res, next) => {
   // setting endpoint to a variable
-  const url = `https://api.darksky.net/forecast/${process.env.Dark_Sky_Key}/42.3601,-71.0589`;
+  const url = `https://api.darksky.net/forecast/${process.env.Dark_Sky_Key}/${res.locals.lat},${res.locals.lng}`;
   axios.get(url)
     .then( (response) => {
         // setting weather info response variable to response.data

@@ -4,9 +4,11 @@ var express = require('express');
 var router = express.Router();
 // getting weather
 const getWeather = require('../apiCalls/getWeather');
+// getting GeoLocation
+const getGeoLocation = require('../apiCalls/getGeoLocation');
 
-/* Home page. Contains custom middleware to do weather api call */
-router.get('/', getWeather.getWeather, function(req, res, next) {
+/* Home page. Contains custom middleware to do weather api call and get location of user */
+router.get('/', getGeoLocation.getGeoLocation, getWeather.getWeather, function(req, res, next) {
   // rendering weatherInfo object containing the weatherData
   res.render('index', { title: 'Weather App', weatherInfo: res.locals.weatherInfo });
 });
