@@ -5,9 +5,9 @@ var router = express.Router();
 // getting weather
 const getWeather = require('../apiCalls/getWeather');
 
-/* GET home page. */
+/* Home page. Contains custom middleware to do weather api call */
 router.get('/', getWeather.getWeather, function(req, res, next) {
-  console.log('response',res.locals.weatherInfo);
+  // rendering weatherInfo object containing the weatherData
   res.render('index', { title: 'Weather App', weatherInfo: res.locals.weatherInfo });
 });
 
