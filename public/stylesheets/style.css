@@ -20,6 +20,19 @@ div {
   overflow: scroll;
   border:1px black solid;
 }
+.displayWeather {
+  padding:20px;
+}
+/*.displayWeather>p {
+  font-size:2em;
+}*/
+.displayWeather>span {
+  font-size:3rem;
+}
+
+.displayWeather>h4 {
+  font-size:1.5rem;
+}
 
 body {
   display: flex;
@@ -29,5 +42,10 @@ body {
 
 main {
   flex: 1 0 auto;
+  padding:20px;
+}
+.social>li {
+  display:inline-block;
+  margin-right:20px;
 }
 /*# sourceMappingURL=style.css.map */

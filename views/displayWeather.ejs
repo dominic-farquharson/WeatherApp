@@ -6,12 +6,13 @@
   <body>
   <!-- Header partial -->
   <% include partials/header.ejs %>
-    <main>
+    <main class="displayWeather">
       <h1><%= title %></h1>
-      <p>Temp: <%= weatherInfo.currently.temperature %></p>
-      <p>Lat:<%= weatherInfo.latitude %> </p>
-      <p>Lng:<%= weatherInfo.longitude %> </p>
-      <p>TimeZone: <%= weatherInfo.timezone %> </p>
+      <p> <h3><span>"<%= weatherInfo.currently.summary %>"</span></h3></p>
+      <p><h4>Temp:</h4> <span><%= weatherInfo.currently.temperature %>&deg;</span></p>
+      <p><h4>Lat:</h4><span><%= Math.floor(weatherInfo.latitude) %>&deg;</span> </p>
+      <p><h4>Lng:</h4><span><%= Math.floor(weatherInfo.longitude) %>&deg;</span> </p>
+      <p><h4>TimeZone:</h4> <span><%= weatherInfo.timezone %></span> </p>
       <!-- Favorites button -->
       <form action="/favorite" method="POST">
         <!-- grabbing latitude -->
@@ -26,6 +27,8 @@
       <form action="/user">
         <div><input type="submit" class="waves-effect waves-light btn blue"  value="View Favorites" /></div>
       </form>
+
+
     </main>
 
 
