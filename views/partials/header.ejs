@@ -3,35 +3,36 @@
     <div class="nav-wrapper blue">
       <a href="\" class="brand-logo">Weather App</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a>
+      <!-- conditional rendering for nav -->
       <ul class="right hide-on-med-and-down">
         <% if(!username) { %>
-        <li><a href="/">Home</a></li>
-        <li><a href="/weather">Weather</a></li>
-        <li><a href="/user">Account</a></li>
-        <li><a href="/register">Register</a></li>
-        <li><a href="/login">Login</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/weather">Weather</a></li>
+          <li><a href="/user">Account</a></li>
+          <li><a href="/register">Register</a></li>
+          <li><a href="/login">Login</a></li>
         <% } %>
         <% if(username) { %>
-        <li><a href="/">Home</a></li>
-        <li><a href="/weather">Weather</a></li>
-        <li><a href="/user">Account</a></li>
-        <li><a href="/logout">Logout</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/weather">Weather</a></li>
+          <li><a href="/user">Account</a></li>
+          <li><a href="/logout">Logout</a></li>
         <% } %>
       </ul>
       <!-- mobile nav -->
       <ul class="side-nav" id="mobile-demo">
         <% if(!username) { %>
-        <li><a href="/">Home</a></li>
-        <li><a href="/weather">Weather</a></li>
-        <li><a href="/user">Account</a></li>
-        <li><a href="/register">Register</a></li>
-        <li><a href="/login">Login</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/weather">Weather</a></li>
+          <li><a href="/user">Account</a></li>
+          <li><a href="/register">Register</a></li>
+          <li><a href="/login">Login</a></li>
         <% } %>
         <% if(username) { %>
-        <li><a href="/">Home</a></li>
-        <li><a href="/weather">Weather</a></li>
-        <li><a href="/user">Account</a></li>
-        <li><a href="/logout">Logout</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/weather">Weather</a></li>
+          <li><a href="/user">Account</a></li>
+          <li><a href="/logout">Logout</a></li>
         <% } %>
       </ul>
     </div>

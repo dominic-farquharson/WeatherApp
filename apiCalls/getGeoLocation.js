@@ -9,7 +9,6 @@ let getGeoLocation = (req, res, next) => {
   // post request to get location
   axios.post(url)
     .then( (response) => {
-    console.log('geo data',response);
       // location
       res.locals.address = 'GPS';
       // setting lat to latitude
